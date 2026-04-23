@@ -1,4 +1,4 @@
-#include "string.h"
+#include "src/addons/string/string.h"
 
 static size_t _string_calc_size(const char *source) {
     if (!source) {
@@ -55,7 +55,7 @@ char string_get(string_t *this, size_t index) {
 }
 
 void string_free(string_t *this) {
-    if (!this) {
+    if (!this || !this->source) {
         return;
         // TODO: e
     }
