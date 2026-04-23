@@ -55,10 +55,12 @@ char string_get(string_t *this, size_t index) {
 }
 
 void string_free(string_t *this) {
-    if (!this || !this->source) {
+    if (!this) {
         return;
         // TODO: e
     }
-    free(this->source);
+    if (this->source) {
+        free(this->source);
+    }
     free(this);
 }

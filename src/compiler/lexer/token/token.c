@@ -18,10 +18,12 @@ token_t *token_new(token_type_t type, string_t *source, size_t line, size_t col)
 }
 
 void token_free(token_t *this) {
-    if (!this || !this->source) {
+    if (!this) {
         return;
         // TODO: e
     }
-    free(this->source);
+    if (this->source) {
+        free(this->source);
+    }
     free(this);
 }
